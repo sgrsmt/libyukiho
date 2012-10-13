@@ -1,0 +1,22 @@
+open configure/Configure
+
+defcon(name, default) = 
+  ConfMsgChecking($(name))
+  if $(defined $(name))
+  elseif $(defined-env $(name))
+    setvar($(name), $(getenv $(name)))
+    export
+  else
+    setvar($(name), $(default))
+    export
+  ConfMsgResult($(getvar $(name)))
+  export
+
+defcon(CC, gcc)
+defcon(LD, gcc -shared)
+defcon(CFLAGS, -O2 -g)
+defcon(LDFLAGS, $(EMPTY))
+defcon(MAKEFLAGS, -j2)
+
+
+
