@@ -2,3 +2,7 @@
 .omakedb.lock
 *.omc
 
+*.o
+
+/out
+

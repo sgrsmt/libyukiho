@@ -1,3 +1,14 @@
 open config.om
 
-.SUBDIRS: external
+CProgram(program, files) = 
+  bin_path = $(OUTBIN)/$(program)
+  c_names = $(addsuffix .c, $(files))
+  o_names = $(addsuffix .o, $(files))
+  foreach(o_name => ..., $(o_names))
+    $(o_name): $(replacesuffixes .o, .c, $(o_name))
+      $(CC) $(CFLAGS) -o $@ -c $<
+  $(bin_path): $(o_names)
+    $(CC) -o $@ $(o_names)
+  value $(bin_path)
+
+.SUBDIRS: external src

@@ -1,0 +1,6 @@
+
+CProgram(yukiho, yukiho)
+
+.DEFAULT: $(OUTBIN)/yukiho
+  
+

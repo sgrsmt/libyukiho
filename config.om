@@ -18,5 +18,11 @@ defcon(CFLAGS, -O2 -g)
 defcon(LDFLAGS, $(EMPTY))
 defcon(MAKEFLAGS, -j2)
 defcon(RANLIB, ranlib)
+defcon(OUT, $(dir out))
+defcon(PREFIX, /usr/local)
+defcon(OUTBIN, $(OUT)/bin)
+defcon(OUTINCLUDE, $(OUT)/include)
+defcon(OUTLIB, $(OUT)/lib)
 
+mkdir -p $(OUTBIN) $(OUTINCLUDE) $(OUTLIB)
 
