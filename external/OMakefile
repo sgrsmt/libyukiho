@@ -10,3 +10,9 @@ bdwgc/.libs/libgc.a:
     ./configure --disable-shared && \
     make $(MAKEFLAGS))
 
+lua/src/liblua.a:
+  
+  (cd lua && \
+    make clean && \
+    make $(MAKEFLAGS) TO_LIB=liblua.a linux)
+
