@@ -17,6 +17,6 @@ defcon(LD, gcc -shared)
 defcon(CFLAGS, -O2 -g)
 defcon(LDFLAGS, $(EMPTY))
 defcon(MAKEFLAGS, -j2)
-
+defcon(RANLIB, ranlib)
 
 
