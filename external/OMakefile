@@ -1,0 +1,4 @@
+libuv/uv.a:
+  
+  (cd libuv && make $(MAKEFLAGS))
+
