@@ -2,3 +2,11 @@ libuv/uv.a:
   
   (cd libuv && make $(MAKEFLAGS))
 
+bdwgc/.libs/libgc.a: 
+  
+  (cd bdwgc && \
+    rm -Rf libatomic_ops && \
+    ln -s ../libatomic_ops && \
+    ./configure --disable-shared && \
+    make $(MAKEFLAGS))
+
