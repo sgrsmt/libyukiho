@@ -1,18 +1,22 @@
-libuv/uv.a:
+$(OUTLIB)/uv.a:
   
-  (cd libuv && make $(MAKEFLAGS))
+  (cd libuv && \
+    make $(MAKEFLAGS) && \
+    install -Dm644 uv.a $(absname $@))
 
-bdwgc/.libs/libgc.a: 
+$(OUTLIB)/libgc.a:
   
   (cd bdwgc && \
     rm -Rf libatomic_ops && \
     ln -s ../libatomic_ops && \
-    ./configure --disable-shared && \
-    make $(MAKEFLAGS))
+    ./configure --prefix=$(absname $(OUT)) --disable-shared && \
+    make $(MAKEFLAGS) && \
+    make install)
 
-lua/src/liblua.a:
+$(OUTLIB)/liblua.a:
   
   (cd lua && \
     make clean && \
-    make $(MAKEFLAGS) TO_LIB=liblua.a linux)
+    make $(MAKEFLAGS) INSTALL_TOP=$(absname $(OUT)) TO_LIB=liblua.a linux && \
+    make install INSTALL_TOP=$(absname $(OUT)) TO_LIB=liblua.a)
 
