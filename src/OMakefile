@@ -1,4 +1,4 @@
-LIBS = $(LIBS) lua
+LIBS = $(LIBS) $(OUTLIB)/liblua.a
 
 CProgram(yukiho, yukiho)
 

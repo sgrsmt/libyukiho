@@ -8,7 +8,7 @@ CProgram(program, files) =
     $(o_name): $(replacesuffixes .o, .c, $(o_name))
       $(CC) $(CFLAGS) -o $@ -c $<
   $(bin_path): $(o_names)
-    $(CC) $(LDFLAGS) $(addprefix -l, $(LIBS)) -o $@ $(o_names)
+    $(CC) $(CFLAGS) $(LDFLAGS) $(addprefix -l, $(SHARED_LIBS)) -o $@ $(o_names) $(LIBS)
   value $(bin_path)
 
 .SUBDIRS: external src

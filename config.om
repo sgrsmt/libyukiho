@@ -25,9 +25,10 @@ defcon(OUTINCLUDE, $(OUT)/include)
 defcon(OUTLIB, $(OUT)/lib)
 defcon(EXTERNAL, $(dir external))
 defcon(LIBS, $(EMPTY))
+defcon(SHARED_LIBS, m dl)
 
 mkdir -p $(OUTBIN) $(OUTINCLUDE) $(OUTLIB)
 
-CFLAGS = $(CFLAGS) -I. -I$(EXTERNAL)/include
+CFLAGS = $(CFLAGS) -I. -I$(OUTINCLUDE)
 LDFLAGS = -L$(EXTERNAL)/lib
 
