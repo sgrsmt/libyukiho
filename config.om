@@ -23,6 +23,11 @@ defcon(PREFIX, /usr/local)
 defcon(OUTBIN, $(OUT)/bin)
 defcon(OUTINCLUDE, $(OUT)/include)
 defcon(OUTLIB, $(OUT)/lib)
+defcon(EXTERNAL, $(dir external))
+defcon(LIBS, $(EMPTY))
 
 mkdir -p $(OUTBIN) $(OUTINCLUDE) $(OUTLIB)
+
+CFLAGS = $(CFLAGS) -I. -I$(EXTERNAL)/include
+LDFLAGS = -L$(EXTERNAL)/lib
 
